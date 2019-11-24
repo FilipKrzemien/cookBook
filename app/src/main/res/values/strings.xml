@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">cookBook</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_new_recipe">Add new recipe</string>
+    <string name="view_recipes">View recipes</string>
 </resources>
