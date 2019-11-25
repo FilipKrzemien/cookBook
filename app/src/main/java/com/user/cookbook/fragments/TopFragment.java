@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 
 import com.user.cookbook.R;
 
+public class TopFragment extends Fragment {
 
-public class MenuFragment extends Fragment {
-
-    public MenuFragment() {
+    public TopFragment() {
         // Required empty public constructor
     }
 
@@ -21,7 +20,7 @@ public class MenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false);
+        return inflater.inflate(R.layout.fragment_top, container, false);
     }
 
 }
