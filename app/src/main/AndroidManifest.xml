@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddIngredients">
+        <activity android:name=".add.recepie.AddSteps"></activity>
+        <activity android:name=".add.recepie.AddIngredients"></activity>
+        <activity android:name=".add.recepie.AddRecipe"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddRecipe">
 
-        </activity>
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
