@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">cookBook</string>
+    <string name="add_recipe_name">Nazwa przepisu</string>
+    <string name="add">Dodaj</string>
+    <string name="difficulty">Trudność</string>
+    <string name="easy">Łatwe</string>
+    <string name="medium">Średnie</string>
+    <string name="hard">Trudne</string>
+    <string name="time">Czas</string>
+    <string name="minutes">Minut</string>
+    <string name="add_ingredients">Dodaj składniki</string>
+    <string name="add_ingredient">Dodaj składnik</string>
+    <string name="ingredients">Składniki</string>
+    <string name="ingredient_name">Nazwa składnika</string>
+    <string name="ingredient_amount">Ilość</string>
+    <string name="ingredient_type">Rodzaj</string>
+    <string name="steps">Kroki</string>
+    <string name="step_desc">Opis kroku</string>
+    <string name="add_step">Dodaj krok</string>
 </resources>
