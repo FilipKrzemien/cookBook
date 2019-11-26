@@ -1,12 +1,11 @@
 package com.user.cookbook;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 
-import com.user.cookbook.fragments.MenuFragment;
 
 
 public class MainActivity extends FragmentActivity {
@@ -16,12 +15,21 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Fragment menuPanel = new MenuFragment();
+        Switch simpleSwitchBtn = findViewById(R.id.switchLanguage);
+        final TextView switchBtn_txtView = findViewById(R.id.languageSwitchBtn_txtView);
+        switchBtn_txtView.setText("Polski");
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        final FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment2, menuPanel);
-        transaction.commit();
+        simpleSwitchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    switchBtn_txtView.setText("English");
+                }
+                else {
+                    switchBtn_txtView.setText("Polski");
+                }
+            }
+        });
 
     }
 }
