@@ -1,4 +1,4 @@
-package com.user.cookbook.add.recepie;
+package com.user.cookbook.add.recipe;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

@@ -1,6 +1,5 @@
 package com.user.cookbook;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -8,10 +7,6 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import android.view.View;
-import android.widget.Button;
-
-import com.user.cookbook.add.recepie.AddRecipe;
 import com.user.cookbook.db.DataBaseHelper;
 import com.user.cookbook.db.dao.IngredientDAO;
 import com.user.cookbook.db.dao.RecipeDAO;
@@ -24,35 +19,29 @@ public class MainActivity extends FragmentActivity {
     IngredientDAO ingredientDAO;
     StepDAO stepDAO;
     SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dataBaseHelper = new DataBaseHelper(this);
-        db=dataBaseHelper.getDb();
+        db = dataBaseHelper.getDb();
         stepDAO = new StepDAO(db);
         ingredientDAO = new IngredientDAO(db);
         recipeDAO = new RecipeDAO(db, stepDAO, ingredientDAO);
-        Button button1 = findViewById(R.id.button4);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AddRecipe.class);
-                view.getContext().startActivity(intent);}
-        });
 
-        Switch simpleSwitchBtn = findViewById(R.id.switchLanguage);
+        Switch languageSwitchBtn = findViewById(R.id.switchLanguage);
         final TextView switchBtn_txtView = findViewById(R.id.languageSwitchBtn_txtView);
-        switchBtn_txtView.setText("Polski");
+        switchBtn_txtView.setText(getResources().getString(R.string.polish_language));
 
-        simpleSwitchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        languageSwitchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    switchBtn_txtView.setText("English");
+                    switchBtn_txtView.setText(getResources().getString(R.string.english_language));
                 }
                 else {
-                    switchBtn_txtView.setText("Polski");
+                    switchBtn_txtView.setText(getResources().getString(R.string.polish_language));
                 }
             }
         });

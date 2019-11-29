@@ -1,9 +1,8 @@
-package com.user.cookbook.add.recepie;
+package com.user.cookbook.add.recipe;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +16,6 @@ public class AddSteps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_steps);
-
-        Intent intent = getIntent();
 
         Button button  = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {

@@ -20,6 +20,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new_recipe">Add new recipe</string>
     <string name="view_recipes">View recipes</string>
-    <string name="polish_language">polski</string>
-    <string name="english_language">english</string>
+    <string name="polish_language">Polski</string>
+    <string name="english_language">English</string>
 </resources>

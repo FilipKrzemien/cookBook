@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".add.recepie.AddSteps"></activity>
-        <activity android:name=".add.recepie.AddIngredients"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".add.recepie.AddRecipe">
+        <activity android:name=".add.recipe.AddSteps"></activity>
+        <activity android:name=".add.recipe.AddIngredients"></activity>
+        <activity android:name=".add.recipe.AddRecipe"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

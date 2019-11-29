@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".add.recepie.AddIngredients">
+    tools:context=".add.recipe.AddIngredients">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/addRecipeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/add_ingredient" />
@@ -73,7 +73,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/addStepButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

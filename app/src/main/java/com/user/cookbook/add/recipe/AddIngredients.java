@@ -1,4 +1,4 @@
-package com.user.cookbook.add.recepie;
+package com.user.cookbook.add.recipe;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,8 +26,6 @@ public class AddIngredients extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = getIntent();
-
         setContentView(R.layout.activity_add_ingredients);
         header = findViewById(R.id.headerTV);
 
@@ -41,7 +39,7 @@ public class AddIngredients extends AppCompatActivity {
 
         setContentView(R.layout.activity_add_ingredients);
 
-        Button button  = findViewById(R.id.button7);
+        Button button  = findViewById(R.id.addRecipeButton);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -60,7 +58,7 @@ public class AddIngredients extends AppCompatActivity {
             }
         });
 
-        Button nextButton = findViewById(R.id.button5);
+        Button nextButton = findViewById(R.id.addStepButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
