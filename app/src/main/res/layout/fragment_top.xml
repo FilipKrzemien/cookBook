@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:id="@+id/languagePanel"
+    tools:context=".fragments.TopFragment">
+
+    <Switch
+        android:id="@+id/switchLanguage"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:checked="false"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:id="@+id/languageSwitchBtn_txtView"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@+id/switchLanguage"
+        android:gravity="center_horizontal" />
+
+</RelativeLayout>
