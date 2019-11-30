@@ -16,7 +16,7 @@ import com.user.cookbook.R;
 public class AddIngredients extends AppCompatActivity {
     Context context;
     TextView header;
-//le dupa
+
     LayoutInflater inflater;
     EditText ingredient_1;
     View ingredient;
