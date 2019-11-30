@@ -17,6 +17,7 @@ public class AddIngredients extends AppCompatActivity {
     Context context;
     TextView header;
 
+
     LayoutInflater inflater;
     EditText ingredient_1;
     View ingredient;
