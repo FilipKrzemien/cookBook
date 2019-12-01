@@ -1,11 +1,16 @@
 package com.user.cookbook.db.model;
 
 public class Step {
-    private int recipeId;
+    private long recipeId;
+
+    public void setRecipeId(long recipeId) {
+        this.recipeId = recipeId;
+    }
+
     private int stepNumber;
     private String description;
 
-    public int getRecipeId() {
+    public long getRecipeId() {
         return recipeId;
     }
 
@@ -17,10 +22,14 @@ public class Step {
         return description;
     }
 
-    public Step(int recipe_id, int step_number, String description) {
-
+    public Step(long recipe_id, int stepNumber, String description) {
         this.recipeId = recipe_id;
-        this.stepNumber = step_number;
+        this.stepNumber = stepNumber;
+        this.description = description;
+    }
+
+    public Step(int stepNumber, String description) {
+        this.stepNumber = stepNumber;
         this.description = description;
     }
 }

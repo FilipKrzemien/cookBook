@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.user.cookbook.db.tables.IngredientTable;
 import com.user.cookbook.db.tables.RecipeTable;
 import com.user.cookbook.db.tables.StepTable;
+import com.user.cookbook.db.tables.UnitTable;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String dataBaseName="CookBookDB";
@@ -27,6 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         RecipeTable.onCreate(db);
         StepTable.onCreate(db);
         IngredientTable.onCreate(db);
+        UnitTable.onCreate(db);
     }
 
     @Override
