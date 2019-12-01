@@ -3,6 +3,7 @@ package com.user.cookbook;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -45,6 +46,9 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         });
+
+
+
 
 
 
