@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class StepDAO implements IDAO<Step> {
     private SQLiteDatabase db;
     private SQLiteStatement insertStatement;
-    private static final String insert ="INSERT INTO "+StepTable.tableName+" ("+
-            StepTable.StepColumns.recipeID+", "+StepTable.StepColumns.stepNumber+", "+
-            StepTable.StepColumns.description+") VALUES(?,?,?)";
+    private static final String insert = "INSERT INTO " + StepTable.tableName + " (" +
+            StepTable.StepColumns.recipeID + ", " + StepTable.StepColumns.stepNumber + ", " +
+            StepTable.StepColumns.description + ") VALUES(?,?,?)";
 
     public StepDAO(SQLiteDatabase db) {
         this.db = db;
@@ -24,9 +24,9 @@ public class StepDAO implements IDAO<Step> {
     @Override
     public long save(Step type) {
         insertStatement.clearBindings();
-        insertStatement.bindString(0,String.valueOf(type.getRecipeId()));
-        insertStatement.bindString(1,String.valueOf(type.getStepNumber()));
-        insertStatement.bindString(2,type.getDescription());
+        insertStatement.bindString(0, String.valueOf(type.getRecipeId()));
+        insertStatement.bindString(1, String.valueOf(type.getStepNumber()));
+        insertStatement.bindString(2, type.getDescription());
         return insertStatement.executeInsert();
     }
 
@@ -35,29 +35,27 @@ public class StepDAO implements IDAO<Step> {
         return null;
     }
 
-    public ArrayList<Step> getStepsFromRecipe(int recipeID){
-        String sql="SELECT "+StepTable.StepColumns.stepNumber +", "
-                + StepTable.StepColumns.description +" FROM " + StepTable.tableName + " " +
+    public ArrayList<Step> getStepsFromRecipe(int recipeID) {
+        String sql = "SELECT " + StepTable.StepColumns.stepNumber + ", "
+                + StepTable.StepColumns.description + " FROM " + StepTable.tableName + " " +
                 "WHERE " + StepTable.StepColumns.recipeID + "=" + String.valueOf(recipeID);
-        Cursor cursor = db.rawQuery(sql,null);
+        Cursor cursor = db.rawQuery(sql, null);
         ArrayList<Step> steps = new ArrayList<>();
-        if(cursor.getCount()>0){
+        if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            while(!cursor.isAfterLast()){
-                int number= cursor.getInt(0);
+            while (!cursor.isAfterLast()) {
+                int number = cursor.getInt(0);
                 String description = cursor.getString(1);
-                steps.add(buildStep(number,description,recipeID));
+                steps.add(buildStep(number, description, recipeID));
                 cursor.moveToNext();
             }
-
         }
         cursor.close();
         return steps;
     }
 
     private Step buildStep(int number, String description, int recipeID) {
-        Step s=new Step(recipeID,number,description);
-        return s;
+        return new Step(recipeID, number, description);
     }
 
 }

@@ -1,14 +1,18 @@
 package com.user.cookbook.db.model;
 
 public class Ingredient {
-    private int id;
-    private int recipeID;
+    private long id;
+    private long recipeID;
     private String name;
     private double amount;
     private String unit;
 
-    public int getRecipeID() {
+    public long getRecipeID() {
         return recipeID;
+    }
+
+    public void setRecipeID(long recipeID) {
+        this.recipeID = recipeID;
     }
 
     public double getAmount() {
@@ -23,13 +27,13 @@ public class Ingredient {
         return name;
     }
 
-    public Ingredient(String name, int recipeID, double amount, String unit) {
+    public Ingredient(String name, double amount, String unit) {
         this.name = name;
-        this.recipeID = recipeID;
         this.amount = amount;
         this.unit = unit;
     }
-    public Ingredient(int recipeID, String name, double amount, String unit ,int id) {
+
+    public Ingredient(long recipeID, String name, double amount, String unit, long id) {
         this.id = id;
         this.recipeID = recipeID;
         this.name = name;
