@@ -17,9 +17,11 @@
     <string name="steps">Kroki</string>
     <string name="step_desc">Opis kroku</string>
     <string name="add_step">Dodaj krok</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_new_recipe">Add new recipe</string>
-    <string name="view_recipes">View recipes</string>
+    <string name="add_new_recipe">Dodaj przepis</string>
+    <string name="view_recipes">Lista przepisów</string>
     <string name="polish_language">Polski</string>
     <string name="english_language">English</string>
+    <string name="next_step_button">Next</string>
+    <string name="previous_step_button">Back</string>
+    <string name="timer_button">Set timer</string>
 </resources>
