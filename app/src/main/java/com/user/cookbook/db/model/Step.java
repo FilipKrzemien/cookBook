@@ -1,6 +1,8 @@
 package com.user.cookbook.db.model;
 
-public class Step {
+import java.io.Serializable;
+
+public class Step implements Serializable {
     private long recipeId;
 
     public void setRecipeId(long recipeId) {

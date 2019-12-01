@@ -11,13 +11,15 @@
         android:theme="@style/AppTheme">
         <activity android:name=".add.recipe.AddSteps" />
         <activity android:name=".add.recipe.AddIngredients" />
-        <activity android:name=".add.recipe.AddRecipe" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".add.recipe.AddRecipe" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+
         </activity>
         <activity android:name=".recipeView.RecipeActivity"></activity>
 

@@ -24,4 +24,5 @@
     <string name="next_step_button">Next</string>
     <string name="previous_step_button">Back</string>
     <string name="timer_button">Set timer</string>
+    <string name="empty_form">Pola są niewypełnione</string>
 </resources>

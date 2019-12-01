@@ -1,8 +1,9 @@
 package com.user.cookbook.db.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Recipe {
+public class Recipe implements Serializable {
     private int id;
     private String name;
     private double time;
@@ -30,6 +31,7 @@ public class Recipe {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
