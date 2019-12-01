@@ -44,7 +44,7 @@ public class IngredientDAO implements IDAO<Ingredient> {
     public ArrayList<Ingredient> getIngredientsFromRecipe(int recipeID) {
         String sql = "SELECT " + IngredientTable.tableName + "." + IngredientTable.IngredientColumns.ingredientName + ", " +
                 IngredientTable.tableName + "." + IngredientTable.IngredientColumns.amount + ", " +
-                UnitTable.tableName + "." + UnitTable.UnitColumns.unitName +
+                UnitTable.tableName + "." + UnitTable.UnitColumns.unitName + ", "+
                 IngredientTable.tableName + "." + IngredientTable.IngredientColumns._ID +" FROM " +
                 IngredientTable.tableName + ", " +
                 UnitTable.tableName +
