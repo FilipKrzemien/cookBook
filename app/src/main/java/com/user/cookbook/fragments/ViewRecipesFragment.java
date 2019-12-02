@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.user.cookbook.MainActivity;
 import com.user.cookbook.R;
+import com.user.cookbook.add.recipe.AddRecipe;
 
 public class ViewRecipesFragment extends Fragment implements View.OnClickListener{
 
@@ -27,8 +30,9 @@ public class ViewRecipesFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        //to be modified
-        /*Intent myIntent = new Intent(getActivity(), ViewRecipes.class);
-        startActivity(myIntent);*/
+        if(getActivity().getClass()!=MainActivity.class) {
+            Intent myIntent = new Intent(getActivity(), MainActivity.class);
+            startActivity(myIntent);
+        }
     }
 }

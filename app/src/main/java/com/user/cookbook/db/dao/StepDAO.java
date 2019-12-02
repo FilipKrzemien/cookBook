@@ -24,9 +24,9 @@ public class StepDAO implements IDAO<Step> {
     @Override
     public long save(Step type) {
         insertStatement.clearBindings();
-        insertStatement.bindString(0, String.valueOf(type.getRecipeId()));
-        insertStatement.bindString(1, String.valueOf(type.getStepNumber()));
-        insertStatement.bindString(2, type.getDescription());
+        insertStatement.bindString(1, String.valueOf(type.getRecipeId()));
+        insertStatement.bindString(2, String.valueOf(type.getStepNumber()));
+        insertStatement.bindString(3, type.getDescription());
         return insertStatement.executeInsert();
     }
 

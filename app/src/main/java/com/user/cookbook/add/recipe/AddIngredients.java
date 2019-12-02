@@ -37,7 +37,6 @@ public class AddIngredients extends AppCompatActivity {
         context = getApplicationContext();
         inflater = this.getLayoutInflater();
 
-        setContentView(R.layout.activity_add_ingredients);
 
         Button button  = findViewById(R.id.addRecipeButton);
         button.setOnClickListener(new View.OnClickListener() {

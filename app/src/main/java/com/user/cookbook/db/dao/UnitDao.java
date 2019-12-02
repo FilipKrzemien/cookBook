@@ -23,7 +23,7 @@ public class UnitDao implements IDAO<Unit> {
     @Override
     public long save(Unit type) {
         insertStatement.clearBindings();
-        insertStatement.bindString(0, type.getName());
+        insertStatement.bindString(1, type.getName());
         return insertStatement.executeInsert();
     }
 

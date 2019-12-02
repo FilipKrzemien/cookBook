@@ -1,6 +1,7 @@
 package com.user.cookbook.recipeView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.user.cookbook.R;
 import com.user.cookbook.db.model.Recipe;
+
 
 import java.util.ArrayList;
 
@@ -20,11 +21,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder>{
 
     private Context context;
-    private ArrayList<Recipe> recieps;
+    private ArrayList<Recipe> recipes;
 
-    public RecipeAdapter(Context context, ArrayList<Recipe> recieps) {
+    public RecipeAdapter(Context context, ArrayList<Recipe> reciepes) {
         this.context = context;
-        this.recieps = recieps;
+        this.recipes = reciepes;
     }
 
     @NonNull
@@ -37,21 +38,23 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        viewHolder.recipeName.setText(recieps.get(i).getName());
-        viewHolder.recipeDifficulty.setText(recieps.get(i).getDifficulty());
+        viewHolder.recipeName.setText(recipes.get(i).getName());
+        viewHolder.recipeDifficulty.setText(recipes.get(i).getDifficulty());
 
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context, String.valueOf(recieps.get(i).getId()), Toast.LENGTH_SHORT).show();
-
+                Recipe r = recipes.get(i);
+                Intent intent = new Intent(context,RecipeActivity.class);
+                intent.putExtra("Recipe",r);
+                context.startActivity(intent);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return recieps.size();
+        return recipes.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -40,7 +40,7 @@ public class RecipeDAO implements IDAO<Recipe> {
     public void insertRecipe(Recipe type) {
         final long id = save(type);
         insertRecipeSteps(type, id);
-        insertRecipeIngredients(type, id);
+       // insertRecipeIngredients(type, id);
     }
 
     private void insertRecipeIngredients(Recipe type, long id) {
