@@ -33,8 +33,9 @@ public class RecipeActivity extends AppCompatActivity {
         current = 0;
         Recipe recipe = (Recipe)getIntent().getSerializableExtra("Recipe");
         steps = recipe.getSteps();
+        ingredients = recipe.getIngredients();
         description = findViewById(R.id.stepDescription);
-        description.setText(prepareText());
+        description.setText(prepareDescription());
         description.setMovementMethod(new ScrollingMovementMethod());
         next = findViewById(R.id.buttonNext);
         next.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +43,7 @@ public class RecipeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(current<steps.size()-1){
                     current++;
-                    description.setText(prepareText());
+                    description.setText(prepareDescription());
                 }
             }
         });
@@ -52,7 +53,7 @@ public class RecipeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(current>0){
                     current--;
-                    description.setText(prepareText());
+                    description.setText(prepareDescription());
                 }
             }
         });
@@ -64,9 +65,20 @@ public class RecipeActivity extends AppCompatActivity {
         timeNeed.setText(String.valueOf(recipe.getTime()+" min"));
         ingredientsList = findViewById(R.id.ingredientsList);
         ingredientsList.setMovementMethod(new ScrollingMovementMethod());
+        ingredientsList.setText(prepareIngredients());
     }
 
-    private String prepareText() {
+    private String prepareIngredients() {
+        StringBuilder textToReturn = new StringBuilder();
+        for(Ingredient ingredient : ingredients){
+            textToReturn.append(ingredient.getName()).append(" ").
+                    append(ingredient.getAmount()).append(" ").
+                    append(ingredient.getUnit()).append("\n");
+        }
+        return textToReturn.toString();
+    }
+
+    private String prepareDescription() {
         return String.valueOf(steps.get(current).getStepNumber())
                 +". "+steps.get(current).getDescription();
     }

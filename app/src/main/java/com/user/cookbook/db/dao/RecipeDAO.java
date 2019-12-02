@@ -10,9 +10,10 @@ import com.user.cookbook.db.model.Recipe;
 import com.user.cookbook.db.model.Step;
 import com.user.cookbook.db.tables.RecipeTable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RecipeDAO implements IDAO<Recipe> {
+public class RecipeDAO implements IDAO<Recipe>,Serializable {
     private SQLiteDatabase db;
     private SQLiteStatement insertStatement;
     private StepDAO stepDAO;
@@ -40,7 +41,7 @@ public class RecipeDAO implements IDAO<Recipe> {
     public void insertRecipe(Recipe type) {
         final long id = save(type);
         insertRecipeSteps(type, id);
-       // insertRecipeIngredients(type, id);
+        insertRecipeIngredients(type, id);
     }
 
     private void insertRecipeIngredients(Recipe type, long id) {

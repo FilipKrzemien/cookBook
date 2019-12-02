@@ -6,34 +6,53 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.user.cookbook.MainActivity;
 import com.user.cookbook.R;
+import com.user.cookbook.db.dao.RecipeDAO;
+import com.user.cookbook.db.dao.UnitDao;
+import com.user.cookbook.db.model.Ingredient;
+import com.user.cookbook.db.model.Recipe;
+import com.user.cookbook.db.model.Unit;
+
+import java.util.ArrayList;
 
 public class AddIngredients extends AppCompatActivity {
     Context context;
     TextView header;
-//le dupa
     LayoutInflater inflater;
     EditText ingredient_1;
+    EditText time;
     View ingredient;
     LinearLayout mainLayout;
-
+    Recipe recipe;
+    ArrayList<Ingredient> ingredientArrayList;
+    ArrayList<Unit> units;
+    Spinner unitDropDown;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        recipe = (Recipe)getIntent().getSerializableExtra("recipeToAdd");
+        ingredientArrayList = new ArrayList<>();
         setContentView(R.layout.activity_add_ingredients);
         header = findViewById(R.id.headerTV);
-
         mainLayout = findViewById(R.id.linearLayout2);
         ingredient = findViewById(R.id.first_ingredient);
-
+        units = (ArrayList<Unit>) getIntent().getSerializableExtra("unitDAO");
+        ArrayAdapter<Unit> arrayAdapter = new ArrayAdapter<Unit>(this,android.R.layout.simple_spinner_item,units);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ingredient_1 = ingredient.findViewById(R.id.ingredient_1_name);
-
+        time = ingredient.findViewById(R.id.editText8);
+        unitDropDown = ingredient.findViewById(R.id.spinner);
+        unitDropDown.setPrompt("unit");
+        unitDropDown.setAdapter(arrayAdapter);
         context = getApplicationContext();
         inflater = this.getLayoutInflater();
 
@@ -43,17 +62,23 @@ public class AddIngredients extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                EditText ingredient_1 = v.getRootView().findViewById(R.id.ingredient_1_name);
-
-                System.out.println(ingredient_1.getText());
-
-                LinearLayout layout =
-                        (LinearLayout) inflater.inflate(R.layout.ingredient_fragment,
-                                null, false);
-
-                System.out.println(v);
-                LinearLayout linear = v.getRootView().findViewById(R.id.linearLayout2);
-                linear.addView(layout);
+                if(ingredient_1.getText().toString().equals("")
+                        || time.getText().toString().equals(""))
+                {
+                    Toast toast = Toast.makeText(AddIngredients.this,
+                            getString(R.string.empty_values), Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else{
+                    Unit u1 = (Unit) unitDropDown.getSelectedItem();
+                    ingredientArrayList.add(new Ingredient(ingredient_1.getText().toString(),
+                            Double.valueOf(time.getText().toString()),String.valueOf(u1.getId())));
+                    Toast toast = Toast.makeText(AddIngredients.this,
+                            getString(R.string.ingredient_add), Toast.LENGTH_SHORT);
+                    toast.show();
+                    ingredient_1.getText().clear();
+                    time.getText().clear();
+                }
             }
         });
 
@@ -61,8 +86,18 @@ public class AddIngredients extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddIngredients.this, AddSteps.class);
-                startActivity(intent);
+                if(ingredientArrayList.size()==0){
+                    Toast toast = Toast.makeText(AddIngredients.this,
+                            getString(R.string.no_ingredients), Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    recipe.setIngredients(ingredientArrayList);
+                    Intent intent = new Intent(AddIngredients.this, AddSteps.class);
+                    intent.putExtra("recipeToAdd",recipe);
+                    startActivity(intent);
+
+                }
             }
         });
     }

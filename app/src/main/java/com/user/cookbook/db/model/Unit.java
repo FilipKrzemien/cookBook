@@ -1,6 +1,8 @@
 package com.user.cookbook.db.model;
 
-public class Unit  {
+import java.io.Serializable;
+
+public class Unit implements Serializable {
     private long id;
     private String name;
 
@@ -20,5 +22,10 @@ public class Unit  {
 
     public Unit(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return id +". "+ name;
     }
 }
