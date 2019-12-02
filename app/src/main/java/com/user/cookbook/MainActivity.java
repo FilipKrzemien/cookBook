@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -17,7 +15,6 @@ import com.user.cookbook.db.dao.RecipeDAO;
 import com.user.cookbook.db.dao.StepDAO;
 import com.user.cookbook.db.dao.UnitDao;
 import com.user.cookbook.db.model.Recipe;
-import com.user.cookbook.db.model.Step;
 import com.user.cookbook.db.model.Unit;
 import com.user.cookbook.db.tables.IngredientTable;
 import com.user.cookbook.db.tables.RecipeTable;
@@ -47,19 +44,7 @@ public class MainActivity extends FragmentActivity {
         ingredientDAO = new IngredientDAO(db);
         recipeDAO = new RecipeDAO(db, stepDAO, ingredientDAO);
 
-//        Recipe r1 = new Recipe("Zupa z trupa",200,"łatwe");
-//        Step s1 = new Step(1,"We wody wlej do gara");
-//        Step s2 = new Step(2,"podsmaz sol");
-//        Step s3 = new Step(3,"dodaj trupa");
-//        Step s4 = new Step(4,"gotuj se ziom");
-//        ArrayList<Step> steps = new ArrayList<>();
-//        steps.add(s1);
-//        steps.add(s2);
-//        steps.add(s3);
-//        steps.add(s4);
-//        r1.setSteps(steps);
-//        recipeDAO.insertRecipe(r1);
-
+//
 //        db.execSQL("delete from "+ IngredientTable.tableName);
 //        db.execSQL("delete from "+ StepTable.tableName);
 //        db.execSQL("delete from "+ RecipeTable.tableName);
@@ -88,5 +73,23 @@ public class MainActivity extends FragmentActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Recipe r = (Recipe) getIntent().getSerializableExtra("recipeToAdd");
+        if(r!=null){
+          recipeDAO.insertRecipe(r);
+            recipes = recipeDAO.getAll();
+            view = findViewById(R.id.recycler);
+            RecipeAdapter adapter = new RecipeAdapter(this,recipes);
+            view.setAdapter(adapter);
+            view.setLayoutManager(new LinearLayoutManager(this));
+        }
+    }
+
+    public ArrayList<Unit> getUnitList() {
+        return unitDAO.getAll();
     }
 }

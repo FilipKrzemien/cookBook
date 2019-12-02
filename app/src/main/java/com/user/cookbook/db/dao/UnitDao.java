@@ -7,9 +7,10 @@ import android.database.sqlite.SQLiteStatement;
 import com.user.cookbook.db.model.Unit;
 import com.user.cookbook.db.tables.UnitTable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UnitDao implements IDAO<Unit> {
+public class UnitDao implements IDAO<Unit>, Serializable {
     private SQLiteDatabase db;
     private SQLiteStatement insertStatement;
     private static final String insert = "INSERT INTO " + UnitTable.tableName + " (" +

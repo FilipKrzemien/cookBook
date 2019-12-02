@@ -26,4 +26,11 @@
     <string name="timer_button">Minutnik</string>
     <string name="ingredient_type">Jednostka</string>
     <string name="steps">Krok</string>
+    <string name="ingredient_add">Składnik dodano!</string>
+    <string name="step_add">Krok dodano!</string>
+    <string name="empty_values">Pola nie mogą być puste</string>
+    <string name="no_ingredients">Wymagany minimum 1 składnik</string>
+    <string name="no_steps">Wymagany minimum 1 krok</string>
+    <string name="finish">Zakończ</string>
+
 </resources>

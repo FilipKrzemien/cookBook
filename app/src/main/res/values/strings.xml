@@ -25,4 +25,10 @@
     <string name="next_step_button">Next</string>
     <string name="previous_step_button">Back</string>
     <string name="timer_button">Set timer</string>
+    <string name="empty_values">Fields cannot be empty</string>
+    <string name="ingredient_add">Ingredient added!</string>
+    <string name="step_add">Step added!</string>
+    <string name="no_ingredients">At least 1 ingredient required</string>
+    <string name="no_steps">At least 1 step required</string>
+    <string name="finish">Finish</string>
 </resources>

@@ -8,8 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.user.cookbook.MainActivity;
 import com.user.cookbook.R;
 import com.user.cookbook.add.recipe.AddRecipe;
+import com.user.cookbook.db.model.Unit;
+
+import java.util.ArrayList;
 
 public class AddRecipeFragment extends Fragment implements View.OnClickListener {
 
@@ -30,7 +34,11 @@ public class AddRecipeFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        Intent myIntent = new Intent(getActivity(), AddRecipe.class);
-        startActivity(myIntent);
+            Intent myIntent = new Intent(getActivity(), AddRecipe.class);
+            MainActivity main = (MainActivity) getActivity();
+            ArrayList<Unit> units = main.getUnitList();
+            myIntent.putExtra("unitDAO",units);
+            startActivity(myIntent);
+
     }
 }
