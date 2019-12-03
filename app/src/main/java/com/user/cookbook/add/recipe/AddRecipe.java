@@ -29,6 +29,7 @@ public class AddRecipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_receipe);
         name = findViewById(R.id.editText);
+        getSupportActionBar().hide();
         time = findViewById(R.id.editText3);
         difficulty = findViewById(R.id.radioDifficulty);
         units = (ArrayList<Unit>) getIntent().getSerializableExtra("unitDAO");

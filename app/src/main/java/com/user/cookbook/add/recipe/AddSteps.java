@@ -28,6 +28,7 @@ public class AddSteps extends AppCompatActivity {
         setContentView(R.layout.activity_add_steps);
         counter=1;
         steps = new ArrayList<>();
+        getSupportActionBar().hide();
         recipe = (Recipe)getIntent().getSerializableExtra("recipeToAdd");
         desc = findViewById(R.id.editText2);
         Button button  = findViewById(R.id.button2);

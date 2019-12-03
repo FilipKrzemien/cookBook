@@ -34,6 +34,7 @@ public class RecipeActivity extends AppCompatActivity {
         Recipe recipe = (Recipe)getIntent().getSerializableExtra("Recipe");
         steps = recipe.getSteps();
         ingredients = recipe.getIngredients();
+        getSupportActionBar().hide();
         description = findViewById(R.id.stepDescription);
         description.setText(prepareDescription());
         description.setMovementMethod(new ScrollingMovementMethod());
