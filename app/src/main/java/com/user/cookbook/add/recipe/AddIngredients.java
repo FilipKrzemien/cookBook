@@ -41,6 +41,7 @@ public class AddIngredients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         recipe = (Recipe)getIntent().getSerializableExtra("recipeToAdd");
         ingredientArrayList = new ArrayList<>();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_add_ingredients);
         header = findViewById(R.id.headerTV);
         mainLayout = findViewById(R.id.linearLayout2);
