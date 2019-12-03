@@ -43,12 +43,13 @@ public class MainActivity extends FragmentActivity {
         stepDAO = new StepDAO(db);
         ingredientDAO = new IngredientDAO(db);
         recipeDAO = new RecipeDAO(db, stepDAO, ingredientDAO);
-
 //
 //        db.execSQL("delete from "+ IngredientTable.tableName);
 //        db.execSQL("delete from "+ StepTable.tableName);
 //        db.execSQL("delete from "+ RecipeTable.tableName);
 
+        Unit u1= new Unit("elo");
+        unitDAO.save(u1);
 
         recipes = recipeDAO.getAll();
         view = findViewById(R.id.recycler);
