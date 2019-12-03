@@ -22,4 +22,10 @@
     <string name="view_recipes">View recipes</string>
     <string name="polish_language">Polski</string>
     <string name="english_language">English</string>
+    <string name="timer">Minutnik</string>
+    <string name="timer_message">Ustaw czas(minuty)</string>
+    <string name="set_timer">Ustaw</string>
+    <string name="cancel">Anuluj</string>
+    <string name="time_remaining">Pozostały czas:</string>
+    <string name="countdown_finished">Odliczanie zakończone!</string>
 </resources>
